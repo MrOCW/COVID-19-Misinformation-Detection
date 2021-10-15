@@ -1,4 +1,6 @@
 from ocr import OCR
+from model import Model
+from processor import Processor
 import argparse
 
 if __name__ == "__main__":
@@ -11,4 +13,16 @@ if __name__ == "__main__":
 	oem = args.oem
 	psm = args.psm
 	ocr = OCR()
+	m = Model()
+	model = m.load()
+	p = Processor()
+
 	text = ocr.run(file_name,oem,psm)
+	word_seq_train = p.process(text)
+	yhat = model.predict(word_seq_train)	
+	if yhat > 0.5:
+		predicted = "REAL"
+	else:
+		predicted = "FAKE"
+	print(f'Predicted: {predicted}')
+
