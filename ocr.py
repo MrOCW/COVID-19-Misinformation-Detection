@@ -8,7 +8,6 @@ class OCR:
         print("----- Tesseract Version -----")
         print(pytesseract.get_tesseract_version())
         print("-----------------------------")
-        self.img = cv2.imread('image.jpg')
 
     # get grayscale image
     def get_grayscale(self, image):
