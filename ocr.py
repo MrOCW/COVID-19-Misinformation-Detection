@@ -8,7 +8,6 @@ class OCR:
         print("----- Tesseract Version -----")
         print(pytesseract.get_tesseract_version())
         print("-----------------------------")
-        self.img = cv2.imread('image.jpg')
 
     # get grayscale image
     def get_grayscale(self, image):
@@ -41,12 +40,19 @@ class OCR:
     def canny(self, image):
         return cv2.Canny(image, 100, 200)
 
-    def run(self, file_name):
+    def run(self, file_name: str, oem: int, psm: int):
         img = cv2.imread(f'{file_name}')
 
         gray = self.get_grayscale(img)
         gray = self.remove_noise(gray)
 
+        # oem
+        # 0    Legacy engine only.
+        # 1    Neural nets LSTM engine only.
+        # 2    Legacy + LSTM engines.
+        # 3    Default, based on what is available.
+
+        # psm
         # 0    Orientation and script detection (OSD) only.s
         # 1    Automatic page segmentation with OSD.
         # 2    Automatic page segmentation, but no OSD, or OCR.
@@ -61,6 +67,7 @@ class OCR:
         # 11    Sparse text. Find as much text as possible in no particular order.
         # 12    Sparse text with OSD.
         # 13    Raw line. Treat the image as a single text line, bypassing hacks that are Tesseract-specific.
-        custom_config = r'--oem 3 --psm 6'    
+
+        custom_config = r'--oem {} --psm {}'.format(oem,psm)    
 
         return pytesseract.image_to_string(gray, config=custom_config)

@@ -5,5 +5,5 @@ NTU MLDA Hackathon
 Recommended to work in a virtual environment
 ```bash
 $ sudo apt-get install libtesseract-dev tesseract-ocr
-$ pip install pytesseract
+$ pip install pytesseract opencv-python
 ```
