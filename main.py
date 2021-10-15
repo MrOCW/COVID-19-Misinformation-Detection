@@ -12,4 +12,3 @@ if __name__ == "__main__":
 	psm = args.psm
 	ocr = OCR()
 	text = ocr.run(file_name,oem,psm)
-	print(text)
