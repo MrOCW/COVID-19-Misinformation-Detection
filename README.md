@@ -5,6 +5,6 @@ NTU MLDA Hackathon
 Recommended to work in a virtual environment
 ```bash
 $ sudo apt-get install libtesseract-dev tesseract-ocr
-$ cd OCR-Fake-News-Detection
+$ cd COVID-19-Misinformation-Detection
 $ pip install -r requirements.txt
 ```
