@@ -3,7 +3,7 @@ from model import Model
 from utils import *
 import argparse
 import os
-#os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description='OCR')
@@ -18,13 +18,15 @@ if __name__ == "__main__":
 	ocr = OCR()
 	m = Model()
 	model = m.load(args.weights)
-
 	text = ocr.run(file_name,oem,psm)
+	print("----------TEXT TO CLASSIFY----------\n")
+	print(text)
+	print("------------------------------------")
 	word_seq_train = process(text)
 	yhat = model.predict(word_seq_train)	
 	if yhat > 0.5:
-		predicted = "REAL"
+		predicted = "Information seems OK!"
 	else:
-		predicted = "FAKE"
+		predicted = "High Possibility of Misinformation!"
 	print(f'Predicted: {predicted}')
 
