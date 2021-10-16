@@ -2,6 +2,8 @@ from ocr import OCR
 from model import Model
 from utils import *
 import argparse
+import os
+#os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description='OCR')

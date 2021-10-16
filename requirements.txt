@@ -1,0 +1,10 @@
+pandas
+scikit-learn==0.24.2
+pickle5
+numpy
+pytesseract
+opencv-python
+tensorflow-gpu==2.6.0
+keras==2.6.0
+nltk
+

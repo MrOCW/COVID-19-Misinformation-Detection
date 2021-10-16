@@ -40,7 +40,7 @@ def process(text):
     maxlen = 35
     tokenizer = load_tokenizer()
     nltk.download('stopwords')
-    cleaned_comment = prep_comment(text)		
+    cleaned_comment = prep_comment(text)
     word_seq_train = tokenizer.texts_to_sequences(cleaned_comment)		
     wst = []
     for w in word_seq_train:
@@ -48,5 +48,5 @@ def process(text):
             break
         if len(w) != 0:
             wst.append(*w)		
-    word_seq_train = sequence.pad_sequences([wst], maxlen=maxlen, padding="post")		
+    word_seq_train = sequence.pad_sequences([wst], maxlen=maxlen, padding="post")	
     return word_seq_train

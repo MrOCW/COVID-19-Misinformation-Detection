@@ -44,7 +44,6 @@ class OCR:
         img = cv2.imread(f'{file_name}')
 
         gray = self.get_grayscale(img)
-        gray = self.remove_noise(gray)
 
         # oem
         # 0    Legacy engine only.
