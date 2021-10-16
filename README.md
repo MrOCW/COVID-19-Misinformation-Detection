@@ -1,4 +1,4 @@
-# OCR-Fake-News-Detection
+# COVID-19 Misinformation Detection
 NTU MLDA Hackathon
 
 ## Setup
